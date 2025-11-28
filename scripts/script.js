@@ -21,18 +21,19 @@ videoPlayer.addEventListener('ended', () => {
     currentIndex = (currentIndex + 1) % videos.length;
     changeVideo();
 });
-//3.1.кількість параграфів <p> на вашій сторінці index.html
-const paragraphCount = document.getElementsByTagName('p').length;
-console.log(`Кількість параграфів на сторінці: ${paragraphCount}`);
 
-//3.2.кількість заголовків <h2> на вашій сторінці index.html
-const h2Count = document.getElementsByTagName('h2').length;
-console.log(`Кількість заголовків <h2> на сторінці: ${h2Count}`);
+// Обробка подій onmouseenter/onmouseleave
+const allElements = document.querySelectorAll('*');
+allElements.forEach(element => {
+    let originalBackgroundColor = '';
+    element.addEventListener('mouseenter', function(event) {
 
-//3.3.значення background-color елементу <body>
-const bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
-console.log(`Background-color елементу <body>: ${bodyBgColor}`);
-
-//3.4.значення font-size елементу <h1>
-const h1FontSize = window.getComputedStyle(document.querySelector('h1')).fontSize;
-console.log(`Font-size елементу <h1>: ${h1FontSize}`);  
+        event.stopPropagation();
+        originalBackgroundColor = window.getComputedStyle(this).backgroundColor;
+        this.style.backgroundColor = 'red';
+    });
+    element.addEventListener('mouseleave', function(event) {
+        event.stopPropagation();
+        this.style.backgroundColor = originalBackgroundColor;
+    });
+});
