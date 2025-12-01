@@ -34,7 +34,12 @@ videoPlayer.addEventListener('ended', () => {
             const emailInput = document.getElementById('email');
             const phoneInput = document.getElementById('phone');
 
-            const login = loginInput.value.trim();
+            // Оригінальне значення логіну
+            const rawLogin = loginInput.value.trim();
+            // За допомогою replace прибираємо всі символи, крім латинських літер і цифр
+            const login = rawLogin.replace(/[^A-Za-z0-9]/g, '');
+            // Оновлюємо поле, щоб користувач бачив очищене значення
+            loginInput.value = login;
             const email = emailInput.value.trim();
             const phone = phoneInput.value.trim();
 
