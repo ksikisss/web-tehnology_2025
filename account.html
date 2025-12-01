@@ -12,10 +12,18 @@
 <body class="login-page"> 
   <div class="login-container"> 
     <h1 class="login">Вхід</h1> 
-    <form> 
+    <form id="login-form"> 
+      <label for="login"> 
+        Логін 
+        <input type="text" id="login" name="login" placeholder="user123" required> 
+      </label> 
       <label for="email"> 
         Електронна пошта 
         <input type="email" id="email" name="email" placeholder="user@example.com" required> 
+      </label> 
+      <label for="phone"> 
+        Телефон 
+        <input type="tel" id="phone" name="phone" placeholder="+380XXXXXXXXX" required> 
       </label> 
       <label for="password"> 
         Пароль 
@@ -24,7 +32,7 @@
       <button type="submit" class="contrast">Увійти</button> 
     </form> 
     <p style="text-align: center; margin-top: 1rem;"> 
-      <a >Забули пароль?</a> | <a >Реєстрація</a> 
+      <a>Забули пароль?</a> | <a>Реєстрація</a> 
     </p> 
   </div> 
 </body> 
