@@ -1,10 +1,12 @@
 .login-page {   
-  display: flex;    
+  display: flex; 
+  flex-direction: column; /* Елементи розташовуються вертикально */   
   justify-content: center;  
   align-items: center;  
   min-height: 100vh;    /* Висота на всю сторінку */
   background: #fefefe;  /* Світлий фон */
-  margin: 0;    /* Без відступів */
+  margin: 0;   /* Без відступів */
+  padding-top: 50px; /* Можна налаштувати */
 }
 
 .login-container {      
@@ -21,3 +23,24 @@
   text-align: center;   /* Центрований текст */
   margin-bottom: 1.5rem;    /* Відступ знизу */
 }
+
+/* Таби для перемикання між Входом і Реєстрацією */
+.auth-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.auth-tab {
+  color: #fff;
+  text-decoration: none;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid transparent;
+  font-weight: 600;
+}
+
+.auth-tab.active {
+  border-color: #fff;
+}
+

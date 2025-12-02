@@ -5,25 +5,50 @@ const videos = [
 ];
 
 let currentIndex = 0;
-const videoPlayer = document.getElementById('video-player');
+let videoPlayer = null;
 
 // Функция смены видео
 function changeVideo() {
-    videoPlayer.src = videos[currentIndex];
-    videoPlayer.play();
+    if (!videoPlayer) return;
+    
+    try {
+        videoPlayer.src = videos[currentIndex];
+        videoPlayer.play().catch(error => {
+            console.log('Помилка відтворення відео:', error);
+        });
+    } catch (error) {
+        console.log('Помилка завантаження відео:', error);
+    }
 }
 
-// Запуск первого видео
-changeVideo();
-
-// При завершении видео переключаемся на следующее
-videoPlayer.addEventListener('ended', () => {
-    currentIndex = (currentIndex + 1) % videos.length;
-    changeVideo();
+// Ініціалізація відео після завантаження DOM
+document.addEventListener('DOMContentLoaded', () => {
+    videoPlayer = document.getElementById('video-player');
+    
+    if (videoPlayer) {
+        // Обробка помилок завантаження відео
+        videoPlayer.addEventListener('error', (e) => {
+            console.log('Помилка завантаження відео файлу:', videos[currentIndex]);
+            // Переходимо до наступного відео при помилці
+            currentIndex = (currentIndex + 1) % videos.length;
+            if (currentIndex !== 0) {
+                changeVideo();
+            }
+        });
+        
+        // Запуск первого видео
+        changeVideo();
+        
+        // При завершении видео переключаемся на следующее
+        videoPlayer.addEventListener('ended', () => {
+            currentIndex = (currentIndex + 1) % videos.length;
+            changeVideo();
+        });
+    }
 });
 
 
-    // ----- Валідація форми авторизації -----
+    // Валідація форми авторизації 
     const loginForm = document.getElementById('login-form');
 
     if (loginForm) {
@@ -33,12 +58,11 @@ videoPlayer.addEventListener('ended', () => {
             const loginInput = document.getElementById('login');
             const emailInput = document.getElementById('email');
             const phoneInput = document.getElementById('phone');
-
-            // Оригінальне значення логіну
+            
             const rawLogin = loginInput.value.trim();
-            // За допомогою replace прибираємо всі символи, крім латинських літер і цифр
+
             const login = rawLogin.replace(/[^A-Za-z0-9]/g, '');
-            // Оновлюємо поле, щоб користувач бачив очищене значення
+
             loginInput.value = login;
             const email = emailInput.value.trim();
             const phone = phoneInput.value.trim();
@@ -67,8 +91,7 @@ videoPlayer.addEventListener('ended', () => {
                 alert(errors.join('\n'));
             } else {
                 alert('Дані введені коректно!');
-                // Тут за потреби можна відправити форму на сервер
-                // loginForm.submit();
+
             }
         });
     };

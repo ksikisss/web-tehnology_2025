@@ -10,6 +10,46 @@ body {
   color: #000;
 }
 
+/* Додаткова навігація роутера */
+.router-nav {
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.router-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.router-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.router-nav a.active {
+  text-decoration: underline;
+}
+
+.not-found-page {
+  font-family: "Arial", sans-serif;
+}
+
+.not-found-main {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-content {
+  text-align: center;
+}
+
 main {
   padding: 0 30px;
   background-color: #fff
@@ -284,39 +324,7 @@ header {
 .recomendation-card .recomendation-overlay:hover {
   text-decoration: underline;
 }
-/* Стилі для динамічної галереї */
-.image-gallery {
-    /* Робить контейнер Flex-контейнером */
-    display: flex;
-    /* Вирівнює елементи по центру */
-    justify-content: center;
-    /* Дозволяє елементам переноситися, якщо вони не поміщаються (хоча ми хочемо в лінію) */
-    flex-wrap: wrap; 
-    
-    /* Мінімальні декоративні стилі */
-    padding: 20px 0;
-    margin-top: 40px;
-    border-top: 2px solid #000;
-}
-.image-gallery {
-    padding: 20px 0;
-    margin-top: 40px;
-    border-top: 2px solid #000;
-    text-align: center;
-}
 
-.image-gallery h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.dynamic-image {
-    width: 250px; 
-    height: 375px; 
-    object-fit: cover; 
-    margin: 10px;
-}
 .bestseleru {
   width: 100%;
   padding: 20px 0;
@@ -334,7 +342,7 @@ header {
 }
 .bestseleru .bestseleru-header .view-all {
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: bold; 
   text-decoration: none;
   color: #000;
   transition: color 0.3s ease;
@@ -342,6 +350,7 @@ header {
 .bestseleru .bestseleru-header .view-all:hover {
   color: gray;
 }
+
 
 .products-bet {
   display: flex;

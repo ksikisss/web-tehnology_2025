@@ -1,15 +1,23 @@
+<?php
+
+if (!isset($pageTitle)) {
+    $pageTitle = 'Вхід';
+}
+if (!isset($currentRoute)) {
+    $currentRoute = 'signin';
+}
+?>
 <!DOCTYPE html> 
 <html lang="uk"> 
 <head> 
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <title>Вхід в систему</title> 
-  <!-- CSS Framework -->
+  <title><?php echo htmlspecialchars($pageTitle ?? 'Вхід', ENT_QUOTES, 'UTF-8'); ?></title> 
   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
-  <!-- Custom styles -->
   <link rel="stylesheet" href="styles/loginstyle.css">
 </head> 
 <body class="login-page"> 
+<?php include __DIR__ . '/nav.php'; ?>
   <div class="login-container"> 
     <h1 class="login">Вхід</h1> 
     <form id="login-form"> 
@@ -37,3 +45,5 @@
   </div> 
 </body> 
 </html>
+
+

@@ -1,19 +1,23 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css"> <!-- Подключаем CSS-файл -->
+    <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
     <meta name="description" content="Maybelline New York - косметика для макіяжу. Всі новинки, бестселери та поради щодо макіяжу.">
     <meta name="keywords" content="Maybelline, косметика, макіяж, новинки, бестселери, поради">
     <meta name="author" content="Maybelline Ukraine">
-    <script src="scripts/script.js" defer></script>  <!-- Подключаем JS-файл -->
-    <title>Maybelline New York – Офіційний сайт</title>
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/matcher.js" defer></script>
+    <title><?php echo htmlspecialchars($pageTitle ?? 'Maybelline New York – Офіційний сайт', ENT_QUOTES, 'UTF-8'); ?></title>
 </head>
 <body>
     <header>
-        <div class="header-top"> <!--поиск-логотип-аккаунт-->
+        <div class="header-top">
             <div class="search-container">
                 <img src="assets/search.png" alt="Пошук" class="search-icon">
                 <input type="text" class="search-input" placeholder="Введіть текст...">
@@ -25,75 +29,74 @@
             </div>
             
             <div class="account-link">
-                <a href="account.html">Акаунт</a>
+                <a href="index.php?route=signin">Акаунт</a>
             </div>
         </div>
 
-
-        <nav class="menu"> <!--меню переход на другую страницу-->
-            <div class="menu-item"> <!--меню с выбором-->
-                <a >ВСІ ПРОДУКТИ</a>
+        <nav class="menu">
+            <div class="menu-item">
+                <a>ВСІ ПРОДУКТИ</a>
             </div>
             
-            <div class="menu-item"> <!--меню с выбором-->
-                <a >ОЧІ</a>
+            <div class="menu-item">
+                <a>ОЧІ</a>
                 <div class="submenu">
-                    <a >Брови</a>
-                    <a >Підводка Для Очей</a>
-                    <a >Тіні Для Повік</a>
-                    <a >Туш Для Вій</a>
-                    <a >View All</a>
+                    <a>Брови</a>
+                    <a>Підводка Для Очей</a>
+                    <a>Тіні Для Повік</a>
+                    <a>Туш Для Вій</a>
+                    <a>View All</a>
                 </div>
             </div>
             
-            <div class="menu-item"> <!--меню с выбором-->
-                <a >ОБЛИЧЧЯ</a>
+            <div class="menu-item">
+                <a>ОБЛИЧЧЯ</a>
                 <div class="submenu">
-                    <a >BB-Крем</a>
-                    <a >Рум'яна Та Бронзер</a>
-                    <a >Консилер Для Обличчя</a>
-                    <a >Тональна Основа</a>
-                    <a >Пудра</a>
-                    <a >Праймер І Спрей-Фіксатор</a>
-                    <a >View All</a>
+                    <a>BB-Крем</a>
+                    <a>Рум'яна Та Бронзер</a>
+                    <a>Консилер Для Обличчя</a>
+                    <a>Тональна Основа</a>
+                    <a>Пудра</a>
+                    <a>Праймер І Спрей-Фіксатор</a>
+                    <a>View All</a>
                 </div>
             </div>
 
-            <div class="menu-item"> <!--меню с выбором-->
-                <a >ГУБИ</a>
+            <div class="menu-item">
+                <a>ГУБИ</a>
                 <div class="submenu">
-                    <a >Помада Для Губ</a>
-                    <a >Блиск Для Губ</a>
-                    <a >Бальзам Для Губ</a>
-                    <a >Олівець Для Губ</a>
-                    <a >View All</a>
+                    <a>Помада Для Губ</a>
+                    <a>Блиск Для Губ</a>
+                    <a>Бальзам Для Губ</a>
+                    <a>Олівець Для Губ</a>
+                    <a>View All</a>
                 </div>
             </div>
 
-            <div class="menu-item"> <!--меню с выбором-->
-                <a >ПОРАДИ ЩОДО МАКІЯЖУ</a>
+            <div class="menu-item">
+                <a>ПОРАДИ ЩОДО МАКІЯЖУ</a>
                 <div class="submenu">
-                    <a >Очі</a>
-                    <a >Обличчя</a>
-                    <a >Уроки Макіяжу Губ</a>
-                    <a >Тренди Макіяжу</a>
-                    <a >View All</a>
+                    <a>Очі</a>
+                    <a>Обличчя</a>
+                    <a>Уроки Макіяжу Губ</a>
+                    <a>Тренди Макіяжу</a>
+                    <a>View All</a>
                 </div>
             </div>
-            <div class="menu-item"> 
-                <a >ПРО НАС</a>
+            <div class="menu-item">
+                <a>ПРО НАС</a>
                 <div class="submenu">
-                    <a >Про Нас</a>
-                    <a >Brave Together</a>
-                    <a >Conscious Together</a>
-                    <a >View All</a>
+                    <a>Про Нас</a>
+                    <a>Brave Together</a>
+                    <a>Conscious Together</a>
+                    <a>View All</a>
                 </div>
             </div>
 
-            <div class="menu-item"> <!--меню с выбором-->
-                <a >BRAVE TOGETHER</a>
+            <div class="menu-item">
+                <a>BRAVE TOGETHER</a>
                 <div class="submenu">
-                        <!-- пока пусто -->
+                    <!-- пока пусто -->
                 </div>
             </div>
         </nav>
@@ -103,14 +106,11 @@
             <video id="video-player" muted autoplay playsinline></video>
         </div>>
 
-        <!--НОВІ ЗАСОБИ-->
-        
-        <!--Нові засоби-->
         <section class="product-list" aria-label="Нові засоби">
-            <div class="new-products"> <!--переход на другую страницу, все продукты-->
+            <div class="new-products">
                 <div class="new-products-header">
                     <h2>НОВІ<br>ЗАСОБИ</h2>
-                    <a  class="view-all">УСІ ПРОДУКТИ →</a>
+                    <a class="view-all">УСІ ПРОДУКТИ →</a>
                 </div>
             </div>
             <div class="product-box">
@@ -152,20 +152,17 @@
             </div>
         </section>
 
-
-        <!--Макіяж та Образи-->   
         <section class="recomendation-list" aria-label="Макіяж та образи">
-            <!--Возможний переход на усі образи-->
-            <div class="new-products"> <!--переход на другую страницу, все продукты-->
+            <div class="new-products">
                 <div class="new-products-header">
                     <h2>МАКІЯЖ<br>ВИДИ Й ПОРАДИИ</h2>
                     <p>Дізнайся про трендовий макіяж або опануй ці хитрощі вже сьогодні!</p>
-                    <a  class="view-all">Усі образи →</a>
+                    <a class="view-all">Усі образи →</a>
                 </div>
             </div>
 
             <article class="product-card">
-                <a >
+                <a>
                     <figure>
                         <img src="assets/recomendation/make-eye.jpg" alt="12 образів із підводкою">
                         <figcaption class="recomendation-overlay">12 ОБРАЗІВ ІЗ ПІДВОДКОЮ</figcaption>
@@ -183,7 +180,7 @@
             </article>
 
             <article class="product-card">
-                <a >
+                <a>
                     <figure>
                         <img src="assets/recomendation/make-lips2.jpg" alt="Як наносити рідку матову помаду? Уроки макіяжу губ">
                         <figcaption class="recomendation-overlay">ЯК НАНОСИТИ РІДКУ МАТОВУ ПОМАДУ? УРОКИ МАКІЯЖУ ГУБ.</figcaption>
@@ -192,7 +189,7 @@
             </article>
 
             <article class="product-card">
-                <a >
+                <a>
                     <figure>
                         <img src="assets/recomendation/make-eye2.jpg" alt="Як намалювати відкриті стрілки">
                         <figcaption class="recomendation-overlay">ЯК НАМАЛЮВАТИ ВІДКРИТІ СТРІЛКИ</figcaption>
@@ -200,18 +197,12 @@
                 </a>
             </article>
         </section>
-
-        <section id="image-gallery" class="image-gallery">
-            <h2>Галерея</h2>
-        </section>
-
-        <!--картки бестселери-->
+        
         <section class="products-bet" aria-label="Бестселери">
-            <!--секция бестселери-->
             <div class="bestseleru">
                 <div class="bestseleru-header">
                     <h2>БЕСТСЕЛЕРИ</h2>
-                    <a  class="view-all">дивитися все →</a>
+                    <a class="view-all">дивитися все →</a>
                 </div>
             </div>
             
@@ -255,6 +246,22 @@
                 <button type="button">КУПИТИ ЗАРАЗ</button>
             </article>
         </section>
+
+        <section class="Set" aria-label="Порівняння фраз">
+            <h2>Порівняння фраз</h2>
+            <input
+                id="textInput1"
+                type="text"
+                placeholder="Введіть першу фразу..."
+            />
+            <input
+                id="textInput2"
+                type="text"
+                placeholder="Введіть другу фразу..."
+            />
+            <button id="checkBtn">Перевірити</button>
+            <p id="result"></p>
+        </section>
     </main>
     <footer class="site-footer">
         <div class="footer-top">
@@ -266,7 +273,7 @@
         <div class="footer-links">
             <a href="https://www.loreal.com/en/ukraine/pages/group/privacy-policy-ukraine/">Політика Конфіденційності</a>
             <a href="https://www.maybelline.ua/umovy-vikoristannya">Умови Використання</a>
-            <a >Налаштування Файлів Cookie</a>
+            <a>Налаштування Файлів Cookie</a>
          </div>
 
         <div class="footer-social">
@@ -283,3 +290,5 @@
     </footer>
 </body>
 </html>
+
+
