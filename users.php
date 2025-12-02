@@ -93,8 +93,8 @@ displayUserInfo($student);
 echo "Інформація про Викладача" . PHP_EOL;
 displayUserInfo($teacher);
 
-$student->setGroup("КІ-24");
-$teacher->setSubject("Фізика");
+$student->setGroup("КН-24");
+$teacher->setSubject("Програмування");
 
 echo PHP_EOL . "--- Після оновлення ---" . PHP_EOL;
 echo "Оновлена група студента: " . $student->getGroup() . PHP_EOL;
