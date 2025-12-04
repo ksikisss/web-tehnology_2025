@@ -13,6 +13,7 @@
     <meta name="author" content="Maybelline Ukraine">
     <script src="scripts/script.js" defer></script>
     <script src="scripts/matcher.js" defer></script>
+    <script src="scripts/set.js" defer></script>
     <title><?php echo htmlspecialchars($pageTitle ?? 'Maybelline New York – Офіційний сайт', ENT_QUOTES, 'UTF-8'); ?></title>
 </head>
 <body>
